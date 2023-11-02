@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+    <title>Report Problems</title>
+    
+    <style>
+        /* CSS to position the image at the top center without covering other content */
+        .image-container {
+            position: relative;
+        }
+
+        .logo-image {
+            width: 500px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .buttons-container {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    {{message}}
+                    <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">Close</button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="image-container">
+        <img class="logo-image" src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaAqfo22WetvvcqCMcdQIK8UCh-2DW0MMm5CPIvNZ0Vgcb7viuU66WtrYXChsyXa7vlKEg4-kGxpVXs21dTk1K-uGFK1bQ=s1600" alt="The Project Logo">
+    </div>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Sign Up
+    </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenterLogin">
+        Log In
+    </button>
+    
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Sign Up</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" action="/">
+            <div class="modal-body">
+                <label for="fname">First name:</label>
+                <input type="text" id="fname" name="fname"><br><br>
+                <label for="lname">Last name:</label>
+                <input type="text" id="fname" name="lname"><br><br>
+                <label for="uname">Username:</label>
+                <input type="text" id="fname" name="uname"><br><br>
+                <label for="email">Email:</label>
+                <input type="text" id="fname" name="email"><br><br>
+                <label for="pname">Password:</label>
+                <input type="password" id="fname" name="pname"><br><br>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" type="submit">Register</button>
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="exampleModalCenterLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLoginTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Log In</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" action="/">
+                <div class="modal-body">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="uname">
+                    <br>
+                    <br>
+                    <label for="accounttype">Account Type:</label>
+                    <select name="accounttype" id="accounttype">
+                        <option value="user">User</option>
+                        <option value="representative">Representative</option>
+                    </select>
+                    <br>
+                    <br>
+                    <label for="passsword">Password:</label>
+                    <input type="password" id="username" name="pname"><br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" type="submit">Log In</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
